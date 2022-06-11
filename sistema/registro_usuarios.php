@@ -23,8 +23,8 @@ include "../conexion.php";
 			$alert='<p class= "msg_error">El correo o el usuario ya existe.</p>';
 
 			}else{
-				$quiery_insert= mysqli_query($conection, "INSERT INTO usuario(nombre,correo,usuario,clave,rol) VALUES('$nombre','$email','$user','$clave','$rol')");
-				if($quiery_insert){
+				$query_insert= mysqli_query($conection, "INSERT INTO usuario(nombre,correo,usuario,clave,rol) VALUES('$nombre','$email','$user','$clave','$rol')");
+				if($query_insert){
 					$alert='<p class= "msg_save">Usuario creado correctamente.</p>';
 				}else{
 					$alert='<p class= "msg_error">Error al crear el usuario.</p>';

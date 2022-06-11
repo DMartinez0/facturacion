@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+    <?php include "../conexion.php";?>
 	<?php include "includes/scripts.php";?>
 	<title>Sistema de Ventas</title>
 </head>
@@ -16,33 +17,39 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Correo</th>
+            <th>Usuario</th>
             <th>Rol</th>
             <th>Acciones</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Jorge</td>
-            <td>jorge@gmail.com</td>
-            <td>administrador</td>
-            <td>
-                <a class="link_edit" href="#">Editar</a>
-                |
-                <a class="link_delete" href="#">Eliminar</a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Jorge</td>
-            <td>jorge@gmail.com</td>
-            <td>administrador</td>
-            <td>
-                <a class="link_edit" href="#">Editar</a>
-                |
-                <a class="link_delete" href="#">Eliminar</a>
-            </td>
-        </tr>
+           <?php 
+        
+            $query= mysqli_query($conection, "SELECT u.idusuario, u.nombre, u.correo, u.usuario, r.rol FROM usuario u INNER JOIN rol r ON u.rol=r.idrol");
 
+           $result = mysqli_num_rows($query);
+        
+                 if ($result > 0){
 
+                    while ($data = mysqli_fetch_array($query)) {
+            ?>  
+             
+                        <tr>
+                            <td><?php echo $data["idusuario"];?></td>
+                            <td><?php echo $data["nombre"];?></td>
+                            <td><?php echo $data["correo"];?></td>
+                            <td><?php echo $data["usuario"];?></td>
+                            <td><?php echo $data["rol"];?></td>
+                            <td>
+                                <a class="link_edit" href="editar_usuarios.php?id=<?php echo $data["idusuario"];?>">Editar</a>
+                                |
+                                <a class="link_delete" href="#">Eliminar</a>
+                            </td>
+                        </tr>
+            <?php 
+                    }
+                 }
+             ?>
+           
+        
     </table>
 	</section>
 	<?php include "includes/footer.php";?>

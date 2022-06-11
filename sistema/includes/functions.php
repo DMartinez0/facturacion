@@ -1,5 +1,5 @@
 <?php 
-	date_default_timezone_set('America/Guatemala'); 
+	date_default_timezone_set('America/El_Salvador'); 
 	
 	function fechaC(){
 		$mes = array("","Enero", 
@@ -14,8 +14,17 @@
 					  "Octubre", 
 					  "Noviembre", 
 					  "Diciembre");
-		return date('d')." de ". $mes[date('n')] . " de " . date('Y');
+		$dia = array ("Domingo",
+						"Lunes",
+						"Martes",
+						"Miercoles",
+						"Jueves",
+						"Viernes",
+						"sabado");
+		
+		return $dia[date('w')].", ". date('d')." de ". $mes[date('n')] . " de " . date('Y');
 	}
-
+	
+	
 
  ?>
