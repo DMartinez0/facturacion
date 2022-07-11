@@ -2,6 +2,10 @@
  include "../conexion.php";
     if(!empty($_POST))
     {
+        if ($_POST["idusuario"] == 1){
+        header('Location:lista_usuarios.php');
+        exit;
+        }
         $idusuario= $_POST["idusuario"];
 
         $query_delete = mysqli_query($conection, "DELETE FROM usuario WHERE idusuario=$idusuario");
@@ -73,6 +77,7 @@
           </form>
 
         </div>
+    
 	</section>
 	<?php include "includes/footer.php";?>
 </body>

@@ -317,3 +317,34 @@ table td{
 	padding: 20px 50px;
 	border: 0;
 }
+
+/*paginador*/
+
+.paginador ul{
+	padding: 15px;
+	list-style: none;
+	background: #fff;
+	margin-top: 15px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.paginador a, .pageselected{
+	color:#428bca;
+	border: 1px solid #ddd;
+	padding: 5px;
+	display: inline-block;
+	font-size: 14px;
+	text-align: center;
+	width: 35px;
+}
+
+.paginador a:hover{
+	background:#12a4c6;
+	color: #fff;
+}
+.pageselected{
+	color: #fff;
+	background: #428bca;
+	border: 1px	solid #428bca;
+}
